@@ -4,7 +4,7 @@ import {
 } from '@clerk/nextjs/server';
 
 const isProtectedRoute = createRouteMatcher([
-  '/dashboard',
+  
   '/buy_tickets',
   '/rides_info',
   '/order_food',
