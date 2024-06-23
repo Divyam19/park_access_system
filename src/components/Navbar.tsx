@@ -17,7 +17,11 @@ const Navbar = () => {
   return (
     <div className=''>
         <div className='  item-center justify-center flex flex-row '>
-
+            <div className='mt-5 mb-5 ml-5'>
+                <div className='text-4xl font-extrabold'>
+                    YOLO
+                </div>
+            </div>
             <div className='flex flex-row gap-8 mt-5 mb-5 ml-auto mr-auto'>
                 <div className='bg-slate-500 text-white p-2 rounded-xl hover:bg-black hover:shadow-md'>
                     <Link href="/dashboard">

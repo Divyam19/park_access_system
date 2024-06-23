@@ -1,7 +1,9 @@
 'use server'
 
+import Image from "next/image";
 import { getRides } from "../../../../script";
-
+import  th  from '../../../../public/Thrill.jpg'
+import ItemCard from "@/components/ItemCard";
 
 interface Rides{
   id:string;
@@ -13,19 +15,29 @@ type ride=Object[];
 
 const Rides_info =  () => {
   return(
-    <div>
-      {getRides().then((rides)=>(
-        rides.map((ride)=>(
-          <div key={ride.id}>
-            {ride.id}
-            
-            {ride.name}
-<br/>
-            {ride.price}
-            <br/>
-          </div>
-        ))
-      ))}
+    <div className="flex justify-center">
+      <div className="grid grid-cols-2 gap-4 ">
+        {getRides().then((rides)=>(
+          rides.map((ride)=>(
+            <div key={ride.id}>
+              {/* <Image 
+                className='z-10 '
+                alt="bgimage"
+                src={th}
+                width={25}
+                height={10}
+
+              /> */}
+              <ItemCard 
+                rideName={ride.name}
+                price={ride.price}
+                age={ride.age}
+                id={ride.id}
+              />
+            </div>
+          ))
+        ))}
+      </div>
     </div>
   )
 }
