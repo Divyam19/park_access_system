@@ -36,49 +36,40 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getRides = void 0;
 var client_1 = require("@prisma/client");
 var prisma = new client_1.PrismaClient();
-function main() {
+function getRides() {
     return __awaiter(this, void 0, void 0, function () {
-        var ride;
+        var rides;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, prisma.ride.create({
-                        data: {
-                            "name": "VR Adventure",
-                            "price": 1000,
-                            "age": 12
-                        },
-                    })];
+                case 0: return [4 /*yield*/, prisma.ride.findMany()];
                 case 1:
-                    ride = _a.sent();
-                    console.log(ride);
-                    return [2 /*return*/];
+                    rides = _a.sent();
+                    return [2 /*return*/, rides];
             }
         });
     });
 }
-main()
-    .then(function () { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, prisma.$disconnect()];
-            case 1:
-                _a.sent();
-                return [2 /*return*/];
-        }
-    });
-}); })
-    .catch(function (e) { return __awaiter(void 0, void 0, void 0, function () {
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0:
-                console.error(e);
-                return [4 /*yield*/, prisma.$disconnect()];
-            case 1:
-                _a.sent();
-                process.exit(1);
-                return [2 /*return*/];
-        }
-    });
-}); });
+exports.getRides = getRides;
+getRides().then(console.log);
+// async function main() {
+//   const ride=await prisma.ride.create({
+//     data:{
+//         "name": "Splash Zone",
+//         "price": 500,
+//         "age": 12
+//     },
+//   })
+//   console.log(ride)
+// }
+// main()
+//   .then(async () => {
+//     await prisma.$disconnect()
+//   })
+//   .catch(async (e) => {
+//     console.error(e)
+//     await prisma.$disconnect()
+//     process.exit(1)
+//   })

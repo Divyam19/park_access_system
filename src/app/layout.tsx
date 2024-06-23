@@ -31,6 +31,7 @@ export default function RootLayout({
             <main>
               <Navbar/>
               <Background/>
+              
               {children}
             </main>
           </ThemeProvider>
