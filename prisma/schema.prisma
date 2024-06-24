@@ -28,3 +28,9 @@ model Customer {
   groupSize Int
   rides     Ride[]
 }
+
+model food {
+  id       Int   @id
+  dish     String
+  price    Int
+}

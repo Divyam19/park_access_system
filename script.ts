@@ -7,34 +7,35 @@ export async function getRides(){
   return rides;
 }
 
+export async function getDishes(){
+  const dishes=await prisma.food.findMany();
+  return dishes;
+}
+
 // getRides().then(console.log)
 
-
-
-
-
-
-
-
-
-
-// async function main() {
-//   const ride=await prisma.ride.create({
-//     data:{
-//         "name": "Splash Zone",
-//         "price": 500,
-//         "age": 12
-//     },
-//   })
-//   console.log(ride)
-// }
+async function main() {
+  try {
+    const dish=await prisma.food.create({
+      data:{
+        "id":1,
+        "dish": "dosa",
+        "price": 500,
+      },
+    })
+    console.log(dish)
+  } catch (e) {
+    console.error(e)
+  } finally {
+    await prisma.$disconnect()
+  }
+}
 
 // main()
-//   .then(async () => {
-//     await prisma.$disconnect()
+//   .then(() => {
+//     process.exit(0)
 //   })
-//   .catch(async (e) => {
+//   .catch((e) => {
 //     console.error(e)
-//     await prisma.$disconnect()
 //     process.exit(1)
 //   })

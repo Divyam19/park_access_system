@@ -8,6 +8,9 @@ const Ride_tickets = () => {
   const [name, setName] = useState('')
   const [number, setNumber] = useState(0)
   const [payment, setPayment] = useState("")
+  const [ridePrice,setRidePrice]=useState()
+
+  const rp=0
 
   const handleSubmit:any = (event:any) => {
     event.preventDefault() 
