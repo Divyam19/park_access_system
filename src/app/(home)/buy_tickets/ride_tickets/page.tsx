@@ -14,7 +14,7 @@ const Ride_tickets = () => {
 
   const handleSubmit:any = (event:any) => {
     event.preventDefault() 
-    const numberOfGuests = parseInt(number)
+    const numberOfGuests = number
     setGuests(numberOfGuests) 
   }
 

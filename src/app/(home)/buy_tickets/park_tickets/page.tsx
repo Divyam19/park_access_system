@@ -10,7 +10,7 @@ const Park_tickets = () => {
 
   const handleSubmit = (event :any) => {
     event.preventDefault() // prevent the default form submission behavior
-    const numberOfGuests = parseInt(number) // convert the input value to an integer
+    const numberOfGuests = number // convert the input value to an integer
     setGuests(numberOfGuests) // update the guests state
   }
 
