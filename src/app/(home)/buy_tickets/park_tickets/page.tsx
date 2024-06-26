@@ -1,17 +1,26 @@
 'use client'
 import { Button } from '@/components/ui/button'
 import React, { useState } from 'react'
-
+import { addParkCustomer } from '../../../../../script'
+import axios from 'axios'
 const Park_tickets = () => {
+
   const [guests, setGuests] = useState(0)
   const [name, setName] = useState('') // add a state for the name input
   const [number, setNumber] = useState(0) // add a state for the number input
   const [payment, setPayment] = useState("") // add a state for the payment status
 
-  const handleSubmit = (event :any) => {
+  const handleSubmit =async (event :any) => {
     event.preventDefault() // prevent the default form submission behavior
     const numberOfGuests = number // convert the input value to an integer
+    const size=numberOfGuests
     setGuests(numberOfGuests) // update the guests state
+    try {
+      const response = await axios.post('/api/parkorders', { name, size });
+      setPayment(response.data.message);
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
@@ -33,6 +42,7 @@ const Park_tickets = () => {
             <Button type='button' variant={'outline'} onClick={() => {
               setPayment("Redirecting to payment page")
               // Add your payment logic here
+              // addParkCustomer(name,guests)
             }}>
               Pay
             </Button>

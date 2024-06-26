@@ -12,6 +12,36 @@ export async function getDishes(){
   return dishes;
 }
 
+export async function addRider(name:string,size:number,ride:string){
+  try{
+    const addRider=await prisma.rideOrders.create({
+      data:{
+        name,
+        size,
+        ride,
+      },
+    });
+    console.log(`Rider added successfully with id ${addRider.id}`)
+  }
+  catch(error){
+    console.error(`Error Adding rider:${error}`);
+  }
+}
+
+export async function addParkCustomer(name:string,size:number){
+  console.log('function called')
+  try{
+    const newCustomer=await prisma.parkOrders.create({
+      data:{
+        "name":name,
+        "size":size,
+      }
+    })
+  }
+  catch(error){
+    console.error(`Error adding the Park Cu   stomer:${error}`);
+  }
+}
 // getRides().then(console.log)
 
 async function main() {

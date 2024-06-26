@@ -29,6 +29,19 @@ model Customer {
   rides     Ride[]
 }
 
+model RideOrders{
+  id        String    @id @default(cuid())
+  name      String
+  size      Int
+  ride      String
+}
+
+model ParkOrders{
+  id        String     @id @default(cuid())
+  name      String
+  size      Int
+}
+
 model food {
   id       Int   @id
   dish     String
